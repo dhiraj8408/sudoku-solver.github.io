@@ -1,0 +1,119 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/* #EDD1EC; */
+body {
+    text-align: center;
+    background-color: #011f3f;
+}
+
+h1 {
+    margin: 30px;
+    font-family: "Lobster", cursive;
+    text-shadow: 5px 0 #232931;
+    font-size: 8rem;
+    color: #4ecca3;
+}
+
+h6 {
+    margin: 30px;
+    font-family: "Lobster", cursive;
+    text-shadow: 5px 0 #232931;
+    font-size: 4rem;
+    color: #4ecca3;
+}
+
+#sudoku-board {
+    border-collapse: collapse;
+    width: 440px;
+    height: 440px;
+    margin: 20px auto;
+    border: 10px solid #000039 ;
+    border-radius: 10px;
+    background-color: #b0c4de;
+    box-shadow: 10px 10px;
+}
+
+#sudoku-board td {
+    border: 1.5px solid #000039 ;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    font-size: 20px;
+}
+
+#sudoku-board td[contenteditable="true"]:empty:before {
+    content: attr(data-placeholder);
+    color: #aaa;
+}
+
+footer{
+    font-family: "Lobster", cursive;
+    font-size: 1rem;
+    color: #4ecca3;
+}
+
+.buttons{
+    margin: 5px;
+    padding: 5px;
+}
+
+#solvebutton{
+    margin: 5px;
+    width : 100px;
+    height: 30px;
+    padding: 5px;
+    border: 1px solid #4ecca3;
+    font-family: "Lobster", cursive;
+    font-size: 16px;
+    border-radius: 5px;
+}
+
+#clearbutton{
+    margin: 5px;
+    width : 100px;
+    height: 30px;
+    padding: 5px;
+    border: 1px solid #4ecca3;
+    font-family: "Lobster", cursive;
+    font-size: 16px;
+    border-radius: 5px;
+}
+#solvebutton:hover{
+    background-color: #734f96;
+}
+#clearbutton:hover{
+    background-color: #734f96;
+}
+colgroup,
+tbody {
+  border: solid 4px #000039 ;
+}
+tbody>:nth-child(3n){
+    border-bottom: 4px solid #000039 ;
+}
+
+.value-entered{
+    background-color: grey;
+    color: black;
+}
+.out-of-range{
+    background-color: crimson;
+    color: purple;
+}
+.hovered{
+    background-color: #734f96;
+}
+.invalid-cell{
+    background-color: crimson;
+    color: black;
+}
+.solved-cell{
+    background-color: #734f96;
+    color: #EADDCA;
+}
+.invalid-board{
+    background-color: crimson;
+}

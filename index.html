@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sudoku Board</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Indie+Flower|Lobster"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Sudoku Solver</h1>
+    <table id="sudoku-board">
+        <colgroup><col><col><col>
+        <colgroup><col><col><col>
+        <colgroup><col><col><col>
+        <tbody>
+            <tr> <td contenteditable="true" id="1" data-placeholder=" "></td> <td contenteditable="true" id="2" data-placeholder=" "></td> <td contenteditable="true" id="3" data-placeholder=" "></td> <td contenteditable="true" id="4" data-placeholder=" "></td> <td contenteditable="true" id="5" data-placeholder=" "></td> <td contenteditable="true" id="6" data-placeholder=" "></td> <td contenteditable="true" id="7" data-placeholder=" "></td> <td contenteditable="true" id="8" data-placeholder=" "></td> <td contenteditable="true" id="9" data-placeholder=" "></td> </tr>
+            <tr> <td contenteditable="true" id="10" data-placeholder=" "></td> <td contenteditable="true" id="11" data-placeholder=" "></td> <td contenteditable="true" id="12" data-placeholder=" "></td> <td contenteditable="true" id="13" data-placeholder=" "></td> <td contenteditable="true" id="14" data-placeholder=" "></td> <td contenteditable="true" id="15" data-placeholder=" "></td> <td contenteditable="true" id="16" data-placeholder=" "></td> <td contenteditable="true" id="17" data-placeholder=" "></td> <td contenteditable="true" id="18" data-placeholder=" "></td> </tr>
+            <tr id="row3"> <td contenteditable="true" id="19" data-placeholder=" "></td> <td contenteditable="true" id="20" data-placeholder=" "></td> <td contenteditable="true" id="21" data-placeholder=" "></td> <td contenteditable="true" id="22" data-placeholder=" "></td> <td contenteditable="true" id="23" data-placeholder=" "></td> <td contenteditable="true" id="24" data-placeholder=" "></td> <td contenteditable="true" id="25" data-placeholder=" "></td> <td contenteditable="true" id="26" data-placeholder=" "></td> <td contenteditable="true" id="27" data-placeholder=" "></td> </tr>
+            <tr> <td contenteditable="true" id="28" data-placeholder=" "></td> <td contenteditable="true" id="29" data-placeholder=" "></td> <td contenteditable="true" id="30" data-placeholder=" "></td> <td contenteditable="true" id="31" data-placeholder=" "></td> <td contenteditable="true" id="32" data-placeholder=" "></td> <td contenteditable="true" id="33" data-placeholder=" "></td> <td contenteditable="true" id="34" data-placeholder=" "></td> <td contenteditable="true" id="35" data-placeholder=" "></td> <td contenteditable="true" id="36" data-placeholder=" "></td> </tr>
+            <tr> <td contenteditable="true" id="37" data-placeholder=" "></td> <td contenteditable="true" id="38" data-placeholder=" "></td> <td contenteditable="true" id="39" data-placeholder=" "></td> <td contenteditable="true" id="40" data-placeholder=" "></td> <td contenteditable="true" id="41" data-placeholder=" "></td> <td contenteditable="true" id="42" data-placeholder=" "></td> <td contenteditable="true" id="43" data-placeholder=" "></td> <td contenteditable="true" id="44" data-placeholder=" "></td> <td contenteditable="true" id="45" data-placeholder=" "></td> </tr>
+            <tr id = "row6"> <td contenteditable="true" id="46" data-placeholder=" "></td> <td contenteditable="true" id="47" data-placeholder=" "></td> <td contenteditable="true" id="48" data-placeholder=" "></td> <td contenteditable="true" id="49" data-placeholder=" "></td> <td contenteditable="true" id="50" data-placeholder=" "></td> <td contenteditable="true" id="51" data-placeholder=" "></td> <td contenteditable="true" id="52" data-placeholder=" "></td> <td contenteditable="true" id="53" data-placeholder=" "></td> <td contenteditable="true" id="54" data-placeholder=" "></td> </tr>
+            <tr> <td contenteditable="true" id="55" data-placeholder=" "></td> <td contenteditable="true" id="56" data-placeholder=" "></td> <td contenteditable="true" id="57" data-placeholder=" "></td> <td contenteditable="true" id="58" data-placeholder=" "></td> <td contenteditable="true" id="59" data-placeholder=" "></td> <td contenteditable="true" id="60" data-placeholder=" "></td> <td contenteditable="true" id="61" data-placeholder=" "></td> <td contenteditable="true" id="62" data-placeholder=" "></td> <td contenteditable="true" id="63" data-placeholder=" "></td> </tr>
+            <tr> <td contenteditable="true" id="64" data-placeholder=" "></td> <td contenteditable="true" id="65" data-placeholder=" "></td> <td contenteditable="true" id="66" data-placeholder=" "></td> <td contenteditable="true" id="67" data-placeholder=" "></td> <td contenteditable="true" id="68" data-placeholder=" "></td> <td contenteditable="true" id="69" data-placeholder=" "></td> <td contenteditable="true" id="70" data-placeholder=" "></td> <td contenteditable="true" id="71" data-placeholder=" "></td> <td contenteditable="true" id="72" data-placeholder=" "></td> </tr>
+            <tr> <td contenteditable="true" id="73" data-placeholder=" "></td> <td contenteditable="true" id="74" data-placeholder=" "></td> <td contenteditable="true" id="75" data-placeholder=" "></td> <td contenteditable="true" id="76" data-placeholder=" "></td> <td contenteditable="true" id="77" data-placeholder=" "></td> <td contenteditable="true" id="78" data-placeholder=" "></td> <td contenteditable="true" id="79" data-placeholder=" "></td> <td contenteditable="true" id="80" data-placeholder=" "></td> <td contenteditable="true" id="81" data-placeholder=" "></td> </tr>
+        </tbody>
+    </table>
+
+    <div class="buttons">
+        <button id="solvebutton">Solve Board</button>
+        <button id="clearbutton">Clear Board</button>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="index.js"></script>
+    <footer>Made by Dhiraj</footer>
+</body>
+</html>
