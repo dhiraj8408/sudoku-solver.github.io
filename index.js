@@ -1,4 +1,5 @@
 var board = [];
+var validID = [];
 var reason = 0;
 function isValidEntry(input) {
     return (1 <= input && input <= 9);
@@ -18,6 +19,7 @@ function getBoard() {
         if (text === "") {
             row.push(".");
         } else {
+            validID.push(i);
             row.push(text);
         }
         if (i % 9 === 0) {
@@ -181,6 +183,9 @@ $(document).ready(function () {
                             var cellId = i * 9 + j + 1;
                             $("#" + cellId).text(board[i][j]).addClass("solved-cell");
                         }
+                    }
+                    for(let i = 0;i < validID.length;i++){
+                        $("#" + validID[i]).removeClass("solved-cell").addClass("value-entered");
                     }
                 }
             }
