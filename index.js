@@ -4,28 +4,6 @@ function isValidEntry(input) {
     return (1 <= input && input <= 9);
 }
 
-function getRow(val) {
-    var row = val / 9;
-    var rounded = Math.floor(row);
-    if (rounded === row) {
-        row = rounded - 1;
-    }
-    else {
-        row = rounded;
-    }
-    return rounded;
-}
-
-function getCol(val) {
-    var col = val % 9;
-    if (col !== 0) {
-        col = col - 1;
-    }
-    else {
-        col = 8;
-    }
-}
-
 function clearColors() {
     for (var i = 1; i <= 81; i++) {
         $("#" + i).removeClass("hovered");
@@ -39,8 +17,7 @@ function getBoard() {
         var text = $("#" + i).text();
         if (text === "") {
             row.push(".");
-        } 
-        else {
+        } else {
             row.push(text);
         }
         if (i % 9 === 0) {
@@ -75,8 +52,8 @@ function isValid(board, row, col, val) {
 
 function validsubmatrix(board, lr, hr, lc, hc) {
     var freq = new Array(9).fill(0);
-    for (let i = lr; i <= hr; i++) {
-        for (let j = lc; j <= hc; j++) {
+    for (var i = lr; i <= hr; i++) {
+        for (var j = lc; j <= hc; j++) {
             if (board[i][j] !== '.') {
                 var num = board[i][j] - '1';
                 freq[num]++;
@@ -90,7 +67,7 @@ function validsubmatrix(board, lr, hr, lc, hc) {
 }
 
 function isValidBoard(board) {
-    for (let i = 0; i < 9; i++) {
+    for (var i = 0; i < 9; i++) {
         var freq = new Array(9).fill(0);
         for (var j = 0; j < 9; j++) {
             if (board[i][j] !== '.') {
@@ -103,9 +80,9 @@ function isValidBoard(board) {
         }
     }
     reason++;
-    for (let i = 0; i < 9; i++) {
+    for (var i = 0; i < 9; i++) {
         var freq = new Array(9).fill(0);
-        for (let j = 0; j < 9; j++) {
+        for (var j = 0; j < 9; j++) {
             if (board[j][i] !== '.') {
                 var num = board[j][i] - '1';
                 freq[num]++;
@@ -116,8 +93,8 @@ function isValidBoard(board) {
         }
     }
     reason++;
-    for (let lr = 0; lr < 9; lr += 3) {
-        for (let lc = 0; lc < 9; lc += 3) {
+    for (var lr = 0; lr < 9; lr += 3) {
+        for (var lc = 0; lc < 9; lc += 3) {
             var id = validsubmatrix(board, lr, lr + 2, lc, lc + 2);
             if (id != -1) {
                 return id;
@@ -136,7 +113,8 @@ function solveBoard(board) {
                         board[i][j] = String(val);
                         if (solveBoard(board)) {
                             return true;
-                        } else {
+                        } 
+                        else {
                             board[i][j] = '.';
                         }
                     }
@@ -148,8 +126,8 @@ function solveBoard(board) {
     return true;
 }
 function isBoardEmpty(board) {
-    for (let i = 0; i < 9; i++) {
-        for (let j = 0; j < 9; j++) {
+    for (var i = 0; i < 9; i++) {
+        for (var j = 0; j < 9; j++) {
             if (board[i][j] !== ".") {
                 return false;
             }
@@ -167,8 +145,8 @@ $(document).ready(function () {
             $("#" + idOfElement).addClass("value-entered");
         }
         else {
+            $("#" + idOfElement).text("");
             $("#" + idOfElement).removeClass("value-entered").addClass("out-of-range");
-            $("#" + idOfElement).text(" ");
             setTimeout(function () {
                 $("#" + idOfElement).removeClass("out-of-range");
             }, 200);
@@ -184,6 +162,7 @@ $(document).ready(function () {
     $("#solvebutton").click(function () {
         clearColors();
         getBoard();
+        console.log(board);
         var isEmpty = isBoardEmpty(board);
         var id = isValidBoard(board);
         if (isEmpty) {
@@ -196,7 +175,6 @@ $(document).ready(function () {
             }
             else {
                 var solved = solveBoard(board);
-                console.log(board);
                 if (solved) {
                     for (let i = 0; i < 9; i++) {
                         for (let j = 0; j < 9; j++) {
