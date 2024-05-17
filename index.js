@@ -197,6 +197,7 @@ $(document).ready(function () {
             $("#" + i).text("").removeClass("value-entered").removeClass("invalid-cell").removeClass("solved-cell").removeClass("error");
         }
         board = [];
+        validID = [];
         reason = 0;
     });
 
