@@ -146,7 +146,16 @@ function solveBoard(board) {
     }
     return true;
 }
-
+function isBoardEmpty(board) {
+    for (var i = 0; i < 9; i++) {
+        for (var j = 0; j < 9; j++) {
+            if (board[i][j] != ".") {
+                return false;
+            }
+        }
+    }
+    return true;
+}
 $(document).ready(function () {
     $("#sudoku-board").on("keyup", function (event) {
         clearColors();
@@ -155,7 +164,8 @@ $(document).ready(function () {
         var idOfElement = targetElement.getAttribute("id");
         if (isValidEntry(text)) {
             $("#" + idOfElement).addClass("value-entered");
-        } else {
+        }
+        else {
             $("#" + idOfElement).removeClass("value-entered").addClass("out-of-range");
             $("#" + idOfElement).text(" ");
             setTimeout(function () {
@@ -173,18 +183,25 @@ $(document).ready(function () {
     $("#solvebutton").click(function () {
         clearColors();
         getBoard();
+        var isEmpty = isBoardEmpty(board);
         var id = isValidBoard(board);
-        if (id !== -1) {
-            $("#" + id).addClass("invalid-cell");
-            alertInvalidBoard(id);
+        if (isEmpty) {
+            alert("Empty board");
         }
         else {
-            var solved = solveBoard(board);
-            if (solved) {
-                for (let i = 0; i < 9; i++) {
-                    for (let j = 0; j < 9; j++) {
-                        var cellId = i * 9 + j + 1;
-                        $("#" + cellId).text(board[i][j]).addClass("solved-cell");
+            if (id !== -1) {
+                $("#" + id).addClass("invalid-cell");
+                alertInvalidBoard(id);
+            }
+            else {
+                var solved = solveBoard(board);
+                console.log(board);
+                if (solved) {
+                    for (let i = 0; i < 9; i++) {
+                        for (let j = 0; j < 9; j++) {
+                            var cellId = i * 9 + j + 1;
+                            $("#" + cellId).text(board[i][j]).addClass("solved-cell");
+                        }
                     }
                 }
             }
