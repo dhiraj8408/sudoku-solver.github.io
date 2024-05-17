@@ -39,7 +39,8 @@ function getBoard() {
         var text = $("#" + i).text();
         if (text === "") {
             row.push(".");
-        } else {
+        } 
+        else {
             row.push(text);
         }
         if (i % 9 === 0) {
@@ -51,12 +52,12 @@ function getBoard() {
 
 function isValid(board, row, col, val) {
     for (let i = 0; i < 9; i++) {
-        if (board[row][i] == val) {
+        if (board[row][i] === val) {
             return false;
         }
     }
     for (let i = 0; i < 9; i++) {
-        if (board[i][col] == val) {
+        if (board[i][col] === val) {
             return false;
         }
     }
@@ -64,7 +65,7 @@ function isValid(board, row, col, val) {
     const subgridColStart = Math.floor(col / 3) * 3;
     for (let i = 0; i < 3; i++) {
         for (let j = 0; j < 3; j++) {
-            if (board[subgridRowStart + i][subgridColStart + j] == val) {
+            if (board[subgridRowStart + i][subgridColStart + j] === val) {
                 return false;
             }
         }
@@ -74,9 +75,9 @@ function isValid(board, row, col, val) {
 
 function validsubmatrix(board, lr, hr, lc, hc) {
     var freq = new Array(9).fill(0);
-    for (var i = lr; i <= hr; i++) {
-        for (var j = lc; j <= hc; j++) {
-            if (board[i][j] != '.') {
+    for (let i = lr; i <= hr; i++) {
+        for (let j = lc; j <= hc; j++) {
+            if (board[i][j] !== '.') {
                 var num = board[i][j] - '1';
                 freq[num]++;
                 if (freq[num] > 1) {
@@ -89,10 +90,10 @@ function validsubmatrix(board, lr, hr, lc, hc) {
 }
 
 function isValidBoard(board) {
-    for (var i = 0; i < 9; i++) {
+    for (let i = 0; i < 9; i++) {
         var freq = new Array(9).fill(0);
         for (var j = 0; j < 9; j++) {
-            if (board[i][j] != '.') {
+            if (board[i][j] !== '.') {
                 var num = board[i][j] - '1';
                 freq[num]++;
                 if (freq[num] > 1) {
@@ -102,10 +103,10 @@ function isValidBoard(board) {
         }
     }
     reason++;
-    for (var i = 0; i < 9; i++) {
+    for (let i = 0; i < 9; i++) {
         var freq = new Array(9).fill(0);
-        for (var j = 0; j < 9; j++) {
-            if (board[j][i] != '.') {
+        for (let j = 0; j < 9; j++) {
+            if (board[j][i] !== '.') {
                 var num = board[j][i] - '1';
                 freq[num]++;
                 if (freq[num] > 1) {
@@ -115,8 +116,8 @@ function isValidBoard(board) {
         }
     }
     reason++;
-    for (var lr = 0; lr < 9; lr += 3) {
-        for (var lc = 0; lc < 9; lc += 3) {
+    for (let lr = 0; lr < 9; lr += 3) {
+        for (let lc = 0; lc < 9; lc += 3) {
             var id = validsubmatrix(board, lr, lr + 2, lc, lc + 2);
             if (id != -1) {
                 return id;
@@ -129,7 +130,7 @@ function isValidBoard(board) {
 function solveBoard(board) {
     for (let i = 0; i < 9; i++) {
         for (let j = 0; j < 9; j++) {
-            if (board[i][j] == '.') {
+            if (board[i][j] === '.') {
                 for (let val = 1; val <= 9; val++) {
                     if (isValid(board, i, j, String(val))) {
                         board[i][j] = String(val);
@@ -147,9 +148,9 @@ function solveBoard(board) {
     return true;
 }
 function isBoardEmpty(board) {
-    for (var i = 0; i < 9; i++) {
-        for (var j = 0; j < 9; j++) {
-            if (board[i][j] != ".") {
+    for (let i = 0; i < 9; i++) {
+        for (let j = 0; j < 9; j++) {
+            if (board[i][j] !== ".") {
                 return false;
             }
         }
