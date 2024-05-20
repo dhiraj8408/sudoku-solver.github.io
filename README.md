@@ -18,4 +18,3 @@ This Sudoku solver website utilizes a backtracking algorithm to efficiently solv
 
 ## You can try it out at :
 - https://dhiraj8408.github.io/sudoku-solver.github.io/
-- 
