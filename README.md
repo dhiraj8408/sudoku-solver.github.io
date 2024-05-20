@@ -15,3 +15,7 @@ This Sudoku solver website utilizes a backtracking algorithm to efficiently solv
 - **jQuery**: Simplified DOM manipulation and event handling.
 - **HTML**: Structure of the web page.
 - **CSS**: Styling and visual feedback for the Sudoku board.
+
+## You can try it out at :
+- https://dhiraj8408.github.io/sudoku-solver.github.io/
+- 
